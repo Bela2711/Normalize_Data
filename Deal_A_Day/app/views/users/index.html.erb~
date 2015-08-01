@@ -1,0 +1,2 @@
+<%="Upload your file here"%>
+<%= link_to 'Login again', '/users/sign_in'%>

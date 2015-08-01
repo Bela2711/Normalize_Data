@@ -1,0 +1,2 @@
+<%="You are signed out"%>
+<%= link_to 'Login again', '/users/sign_in%>
