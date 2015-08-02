@@ -1,0 +1,14 @@
+class UploadFile < ActiveRecord::Base
+  def self.save(upload)
+    #puts File.read(upload)
+    #data =  String.read(upload['datafile'])
+    #data = File.read(upload['datafile'])
+    puts upload.read
+    name =  upload['uploaded_file']
+    directory = "/home/bela/Documents"
+    # create the file path
+    path = File.join(directory, name)
+    # write the file
+    File.open(path, "wb") { |f| f.write(upload['datafile'].read) }
+  end
+end

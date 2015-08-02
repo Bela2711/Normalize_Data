@@ -1,0 +1,7 @@
+<%= button_to "Sign Out", {action: "sign_out_user"}, method: :delete %>
+
+<%= form_tag({action=>submit_data}, multipart: true) do %>
+  <%= label_tag(:uploaded_file, "Upload your file:") %>
+  <%= file_field_tag 'uploaded_file' %>
+  <%= submit_tag("Upload") %>
+<% end %>

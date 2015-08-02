@@ -7,7 +7,14 @@ class UsersController < ApplicationController
     end
   end
 
-  def upload_data    
+  def upload_data  
+    
+  end
+
+  def submit_data
+    file_data = params[:uploaded_file]
+    post = UploadFile.save(params[:uploaded_file])
+    render :text => "File has been uploaded successfully"   
   end
 
   def sign_out_user
