@@ -1,5 +1,5 @@
 require "csv"
-class UploadFile < ActiveRecord::Base
+class UploadFile
   def self.save(file_data)
     csv = CSV.new(file_data.read,:headers => true,:header_converters => :symbol)
     file_data.rewind

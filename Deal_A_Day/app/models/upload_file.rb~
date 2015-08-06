@@ -1,5 +1,6 @@
 require "csv"
-class UploadFile < ActiveRecord::Base
+class UploadFile
+  #include ActiveModel::Validations
   def self.save(file_data)
     csv = CSV.new(file_data.read,:headers => true,:header_converters => :symbol)
     file_data.rewind
@@ -8,7 +9,7 @@ class UploadFile < ActiveRecord::Base
       parsed_file = CSV.new(file_data.read,:headers => true,:header_converters => :symbol)
     else
       puts "it is tsv"
-      parsed_file = CSV.new(upload.read, :headers => true,:header_converters => :symbol , :col_sep => "\t")
+      parsed_file = CSV.new(file_data.read, :headers => true,:header_converters => :symbol , :col_sep => "\t")
     end
     parsed_file.to_a.map{|row| puts row.to_hash}
   end
