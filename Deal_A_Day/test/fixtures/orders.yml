@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  purchaser_id: 
+  item_id: 
+  count: 1
+  user_id: 
+
+two:
+  purchaser_id: 
+  item_id: 
+  count: 1
+  user_id: 
