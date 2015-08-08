@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
   def submit_data
     file_data = params[:uploaded_file]
-    post = UploadFile.save(file_data)
+    post = UploadFile.save(file_data,current_user.id)
     render :text => "File has been uploaded successfully"   
   end
 
