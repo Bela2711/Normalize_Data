@@ -1,2 +1,5 @@
-<%="Upload your file here"%>
-<%= link_to 'Login again', '/users/sign_in'%>
+<div style="padding:20px"> Hey There!</div>
+
+<div style="padding:20px"> Upload your file
+<a href="/users/upload_data">here
+</div>

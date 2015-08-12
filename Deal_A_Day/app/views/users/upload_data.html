@@ -1,7 +1,33 @@
-<%= button_to "Sign Out", {action: "sign_out_user"}, method: :delete %>
-
-<%= form_tag("submit_data", multipart: true) do %>
-  <%= label_tag(:uploaded_file, "Upload your file:") %>
-  <%= file_field_tag 'uploaded_file' %>
-  <%= submit_tag("Upload") %>
-<% end %>
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<div class="tabbable">
+<ul class="nav nav-tabs">
+<li class="active"><a href="#tab1" data-toggle="tab">Upload file</a></li>
+<li><a href="#tab2" data-toggle="tab">Sign out!</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="tab1">
+<form action="submit_data" method="POST" enctype="multipart/form-data">
+  <div style="padding:10px">
+    Upload your file <input type="file" name="uploaded_file">
+  </div>
+  <div style="padding:10px">
+    <input class= "btn btn-primary" type= "submit" value="Upload">
+  </div>
+</form>
+</div>
+<div class="tab-pane" id="tab2">
+<form action= "sign_out_user" method = "POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <br/>
+  <div style="padding:25px">
+  <input type="submit" align="right" value="Sign Out" class= "btn btn-primary">
+</div>
+</form>
+</div>
+</div>
+</div>
+</body>
