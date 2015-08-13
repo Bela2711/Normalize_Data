@@ -10,8 +10,9 @@
 </ul>
 <div class="tab-content">
 <div class="tab-pane active" id="tab1">
+<><%= @message %></div>
 <form action="submit_data" method="POST" enctype="multipart/form-data">
-  <div style="padding:20px">
+  <div style="padding:10px">
     Upload your file <input type="file" name="uploaded_file">
   </div>
   <div style="padding:10px">

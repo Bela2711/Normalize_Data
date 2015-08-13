@@ -11,14 +11,19 @@ class UsersController < ApplicationController
   end
 
   def upload_data  
-    
+    if params[:resubmit].to_i==1
+	@message="Please select file to be uploaded"
+    else
+	@message=""
+    end
   end
 
   def submit_data
     file_data = params[:uploaded_file]
+    puts file_data
     if params[:uploaded_file].nil?
-	puts "here in"
 #        render "users/upload_data.html" , :text => "please select file to be uploaded"
+         redirect_to "/users/upload_data?resubmit=1"
         return
     end
     post = UploadFile.new(current_user.id)

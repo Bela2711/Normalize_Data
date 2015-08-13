@@ -1,6 +1,6 @@
 require "csv"
 class UploadFile
-
+attr_accessor :revenue
   def initialize(user_id)
     @user_id = user_id
     @revenue = 0

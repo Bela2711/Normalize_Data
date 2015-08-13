@@ -5,6 +5,7 @@ attr_accessor :revenue
     @user_id = user_id
     @revenue = 0
   end
+
   def save(file_data)
     csv = CSV.new(file_data.read,:headers => true,:header_converters => :symbol)
     file_data.rewind
