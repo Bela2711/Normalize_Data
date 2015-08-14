@@ -2,12 +2,7 @@ require 'test_helper'
 include Devise::TestHelpers
 
 class UsersControllerTest < ActionController::TestCase
-  test "should get upload_data" do
-    sign_in users(:one)
-    get :upload_data
-    assert_response :success
-  end
-
+  #tests if user is signed in
   test "should get index" do
     sign_in users(:one)
     get :index
@@ -15,6 +10,14 @@ class UsersControllerTest < ActionController::TestCase
     assert_select 'div#uploadfile', :count => 1
   end
 
+  #tests if it loads upload_data page
+  test "should get upload_data" do
+    sign_in users(:one)
+    get :upload_data
+    assert_response :success
+  end
+
+  #testing log out functionality
   test "should log out the user" do
     sign_in users(:one)
     sign_out(:one)
@@ -23,17 +26,28 @@ class UsersControllerTest < ActionController::TestCase
     assert_select 'div#signed_out', :count => 1
   end
 
-  test "should save data and get revenue" do
+  #can be done by using fixture_file_upload
+  #tests if file gets uploaded,tests revenue returned by the model UploadFile
+  test "should upload file and get revenue" do
     sign_in users(:one)
-upload = ActionDispatch::Http::UploadedFile.new({
+    upload = ActionDispatch::Http::UploadedFile.new({
   :filename => 'example_data.csv',
   :content_type => 'text/csv',
   :tempfile => File.new("#{Rails.root}/test/fixtures/example_data.csv")
-})
-    post = UploadFile.new(users(:one).id)
-    post.save(upload)
-    revenue = post.revenue
-    assert_equal(revenue,95)
+    })
+     #post = UploadFile.new(users(:one).id)
+     #post.save(upload)
+     #revenue = post.revenue
+     #assert_equal(revenue,95)
+     post(:submit_data, {"uploaded_file" => upload},{"current_user" => users(:one)})
+     assert_equal "File has been uploaded successfully and the total revenue from the file is 95.0." , @response.body
+  end
+
+test "should redirect to upload page back with flag set to 1 when file is not selected while uploading the file" do
+    sign_in users(:one)
+    upload = nil
+     post(:submit_data, {"uploaded_file" => upload},{"current_user" => users(:one)})
+     assert_redirected_to "/users/upload_data?resubmit=1" , @response.body
   end
 
 end

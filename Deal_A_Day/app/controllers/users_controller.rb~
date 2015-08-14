@@ -26,7 +26,6 @@ class UsersController < ApplicationController
          redirect_to "/users/upload_data?resubmit=1"
         return
     end
-    puts file_data
     #creating an object of the model UploadFile and save it to the database
     post = UploadFile.new(current_user.id)
     post.save(file_data)
