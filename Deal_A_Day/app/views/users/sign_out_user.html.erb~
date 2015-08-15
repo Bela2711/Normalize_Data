@@ -1,4 +1,4 @@
-<div id="signed_out">
+<div id="signed_out" class="alert alert-success">
 <%="You are signed out"%>
 <%= link_to 'Login again', '/users/sign_in'%>
 </div>
