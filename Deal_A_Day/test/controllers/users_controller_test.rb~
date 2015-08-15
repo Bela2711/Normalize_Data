@@ -27,7 +27,7 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   #can be done by using fixture_file_upload
-  #tests if it shows success message when file gets uploaded
+  #tests if it shows success message when file gets uploaded,tests revenue returned by the model UploadFile
   test "should upload file and get revenue" do
     sign_in users(:one)
     upload = ActionDispatch::Http::UploadedFile.new({

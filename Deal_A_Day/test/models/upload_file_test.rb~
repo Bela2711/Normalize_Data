@@ -2,7 +2,6 @@ require 'test_helper'
 
 class UploadFileTest < ActiveSupport::TestCase
  #tests revenue returned by UploadFile model is correct or not
- #also tests if data is saved in the databse tables
   test "should save data and get revenue" do
     upload = ActionDispatch::Http::UploadedFile.new({
   :filename => 'example_data.csv',
