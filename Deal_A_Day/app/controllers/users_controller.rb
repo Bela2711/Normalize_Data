@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     post = UploadFile.new(current_user.id)
     post.save(file_data)
     revenue = post.revenue
-    render :text => "<div style='color:green' align='center'>File has been uploaded successfully and the total revenue from the file is #{revenue}.</div><a href='/users/upload_data'>Back</a>"   
+    render :text => "<div id='sub_data' style='color:green' align='center'>File has been uploaded successfully and the total revenue from the file is #{revenue}.</div><a href='/users/upload_data'>Back</a>"   
   end
 
   def sign_out_user

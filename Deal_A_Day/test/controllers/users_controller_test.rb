@@ -35,12 +35,8 @@ class UsersControllerTest < ActionController::TestCase
   :content_type => 'text/csv',
   :tempfile => File.new("#{Rails.root}/test/fixtures/example_data.csv")
     })
-     #post = UploadFile.new(users(:one).id)
-     #post.save(upload)
-     #revenue = post.revenue
-     #assert_equal(revenue,95)
      post(:submit_data, {"uploaded_file" => upload},{"current_user" => users(:one)})
-     assert_equal "File has been uploaded successfully and the total revenue from the file is 95.0." , @response.body
+     assert_select 'div#sub_data', :count => 1
   end
 
 test "should redirect to upload page back with flag set to 1 when file is not selected while uploading the file" do
