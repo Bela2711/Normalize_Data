@@ -1,0 +1,3 @@
+<div id="uploadfile" class="alert alert-success" align="center"> Upload your file
+<a href="/users/upload_data">here
+</div>

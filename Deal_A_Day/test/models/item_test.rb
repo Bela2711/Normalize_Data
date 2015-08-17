@@ -1,0 +1,11 @@
+require 'test_helper'
+
+class ItemTest < ActiveSupport::TestCase
+   test "should save item with unique description" do
+   item = Item.create(description: "random description to test")
+    assert item.valid?
+   another_item = Item.new(description: "random description to test")
+   another_item.valid?
+   assert_not_nil another_item.errors.get(:description)
+   end
+end

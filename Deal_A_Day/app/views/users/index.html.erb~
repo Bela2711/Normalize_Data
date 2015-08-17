@@ -1,0 +1,5 @@
+<div style="padding:20px" align="center"> Hey There!</div>
+
+<div id="uploadfile" class="label label-warning" align="center"> Upload your file
+<a href="/users/upload_data">here
+</div>
